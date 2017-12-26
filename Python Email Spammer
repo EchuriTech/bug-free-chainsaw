@@ -1,0 +1,22 @@
+# Python E.Tech Email Spammer
+
+import smtplib
+
+amount = int(input("Number of emails wanted spammed: "))
+count = 0
+
+server = smtplib.SMTP('smtp.gmail.com:587')
+
+# If you want to use this for yahoo or hotmail, etc, you will replace the gmail in smtp.gmail.com with something else same with the port 
+# number 587.
+# Look up the port number and the replacement for smtp.gmail.com if you want to use it for another mail service/company.
+
+server.starttls()
+server.login("EMAILUSERNAME", "PASSSWORD")
+
+for i in range(0,amount+1):
+    server.sendmail("FROMADDRESS","TOADDRESS", "MSG")
+    print("Message Sent")   
+
+server.quit()
+
